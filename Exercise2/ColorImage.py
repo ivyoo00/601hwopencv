@@ -3,29 +3,39 @@ import cv2
 #import sys
 
 def main():
-
     
+    #(read the image)
     img = cv2.imread("/Users/gejiali/学习/ECE/EC601/OpenCV_homework/Test_images/Lenna.png")
     cv2.namedWindow("Original Image", cv2.WINDOW_NORMAL)
     cv2.imshow("Original Image", img)
-
+    
+    #(red,green,blue)
     red,green,blue = cv2.split(img)
 
     RGBpixel = img[20,25]
     print RGBpixel
-
-    cv2.imshow("Red",red)
-    cv2.imshow("Green",green)
-    cv2.imshow("Blue",blue)
-    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex2/Red.png", red)
-    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex2/Green.png", green)
-    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex2/Blue.png", blue)
-
+    
+    #(Y,Cb,Cr)
     ycrcb_image = cv2.cvtColor(img, cv2.COLOR_BGR2YCR_CB)
     Y, Cb, Cr = cv2.split(ycrcb_image)
 
     YCRCBpixel = ycrcb_image[20,25]
     print YCRCBpixel
+
+    #(H,S,V)
+    hsv_image = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    H, S, V = cv2.split(hsv_image)
+
+    HSVpixel = hsv_image[20,25]
+    print HSVpixel
+ 
+    #(show and save image)
+    cv2.imshow("Red",red)
+    cv2.imshow("Green",green)
+    cv2.imshow("Blue",blue)
+    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex2/Red.png", red)
+    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex2/Green.png", green)
+    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex2/Blue.png", blue)  
 
     cv2.imshow("Y",   Y)
     cv2.imshow("Cb",  Cb)
@@ -33,12 +43,6 @@ def main():
     cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex2/Y.png", Y)
     cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex2/Cb.png", Cb)
     cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex2/Cr.png", Cr)
-
-    hsv_image = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    H, S, V = cv2.split(hsv_image)
-
-    HSVpixel = hsv_image[20,25]
-    print HSVpixel
 
     cv2.imshow("Hue", H)
     cv2.imshow("Saturation", S)
