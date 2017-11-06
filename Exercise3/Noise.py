@@ -45,22 +45,22 @@ def main():
     pb = 0.03
           
     gauss_noiseImage = Add_gaussian_Noise(gray,mean,sigma)
-    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/gaussiannoise.png",gauss_noiseImage)
+    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/gaussian noise.png",gauss_noiseImage)
     boxfilter_img = cv2.boxFilter(gauss_noiseImage, -1, (3, 3))
-    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/gaussianBoxfilter.png",boxfilter_img)
+    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/gaussian Boxfilter.png",boxfilter_img)
     gaussfilter_img=cv2.GaussianBlur(gauss_noiseImage, (3,3), 1.5, 3)
-    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/gaussianGaussfilter.png",gaussfilter_img)
+    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/gaussian Gaussfilter.png",gaussfilter_img)
     medianfilter_img=cv2.medianBlur(gauss_noiseImage,5)
-    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/gaussianMedianfilter.png",medianfilter_img)
+    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/gaussian Medianfilter.png",medianfilter_img)
     
     pepper_saltImage=Add_salt_pepper_Noise(gray,pa,pb)
-    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/peppersaltnoise.png",pepper_saltImage)
+    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/pepper_salt noise.png",pepper_saltImage)
     boxfilter_img = cv2.boxFilter(pepper_saltImage, -1, (3, 3))
-    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/peppersaltBoxfilter.png",boxfilter_img)
+    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/pepper_salt Boxfilter.png",boxfilter_img)
     gaussfilter_img=cv2.GaussianBlur(pepper_saltImage, (3,3), 1.5, 3)
-    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/peppersaltGaussfilter.png",gaussfilter_img)
+    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/pepper_salt Gaussfilter.png",gaussfilter_img)
     medianfilter_img=cv2.medianBlur(pepper_saltImage,5)
-    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/peppersaltMedianfilter.png",medianfilter_img)
+    cv2.imwrite("/Users/gejiali/学习/ECE/EC601/ex3/pepper_salt Medianfilter.png",medianfilter_img)
     
 if __name__ == "__main__":
     main()
